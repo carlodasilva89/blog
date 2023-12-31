@@ -16,7 +16,9 @@ use App\Http\Controllers\CursoController;
 
 Route::get('/',HomeController::class);
 
-route::controller(CursoController::class)->group(function(){
+Route::resource('cursos',CursoController::class);
+
+/* route::controller(CursoController::class)->group(function(){
 
     Route::get('cursos','index')->name('cursos.index');
     Route::get('cursos/create','create')->name('cursos.create');
@@ -27,7 +29,7 @@ route::controller(CursoController::class)->group(function(){
     Route::delete('cursos/{curso}','destroy')->name('cursos.destroy');
 });
 
-
+ */
  /*
 Route::get('cursos/{curso}/{categoria?}', function ($curso,$categoria=null) {
     if ($categoria) {

@@ -45,6 +45,7 @@ public function update(Request $request ,Curso $curso){
 
     $this->validate($request, [
         'name' => 'required|min:3',
+        'slug'=> 'required|unique:cursos,slug,'.$curso->id,
         'descripcion' => 'required',
         'categoria' => 'required'
      ]);
@@ -62,7 +63,14 @@ public function update(Request $request ,Curso $curso){
 
 }
 
-    }
+public function destroy(Curso $curso){
+    
+    $curso->delete();
+    return redirect()->route('cursos.index');
+
+}
+
+}
       
 
         
